@@ -1,8 +1,11 @@
-import React ,{Usestate,useEffect, useState}  from "react";
+import React ,{useEffect, useState, useRef}  from "react";
 import axios from 'axios';
+import { useReactToPrint } from "react-to-print";
 
 export default function AuctionHistory(){
     const [auctions,setAuctions] = useState([]);
+
+    const componentPDF = useRef()
 
     useEffect(()=>{
         function getAuctionHis(){
@@ -15,10 +18,16 @@ export default function AuctionHistory(){
     }
     getAuctionHis();
     },[]);
+    const generatePDF  = useReactToPrint({
+        content: ()=> componentPDF.current,
+        documentTitle:"Auction History",
+        onAfterPrint:()=>alert("Data Saved in PDF")
+    });
 
     return (
         <div className="container">
             <h1>Auction History</h1>
+            <div ref={componentPDF} style = {{width: '100%'}}>
             <table className="table">
                 <thead>
                     <tr>
@@ -37,6 +46,10 @@ export default function AuctionHistory(){
                     ))}
                 </tbody>
             </table>
+            </div>
+            <div>
+                <button className = "btn btn-primary" onClick = {generatePDF}>PDF</button>
+            </div>
         </div>
     )
 }
