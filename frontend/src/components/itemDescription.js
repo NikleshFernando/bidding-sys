@@ -11,7 +11,7 @@ export default function ItemDescription() {
 
     useEffect(() => {
         function getDes() {
-            axios.get("http://localhost:4042/property/getproperty/6519c4e7b214eca80e95315f").then((res) => {
+            axios.get("http://localhost:4042/property/getproperty/651597ae43b21e0bc4324bfa").then((res) => {
                 console.log(res.data.property);
                 setAddress(res.data.property.address);
                 setStreet(res.data.property.street);
