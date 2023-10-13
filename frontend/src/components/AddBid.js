@@ -48,11 +48,6 @@ export default function AddBid(){
             }
 
             axios.put("http://localhost:4042/Auction/update/Item01", newBid).then(() => {
-                axios.post("http://localhost:4042/BidHistory/add",newBid).then(() =>{
-                    console.log("Bid History Updated");
-                }).catch((err)=>{
-                    alert(err)
-                })
                 alert("Bid added");
                 setBid(""); 
                 setInputError(null); 
