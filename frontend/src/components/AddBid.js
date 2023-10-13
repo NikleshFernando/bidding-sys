@@ -11,7 +11,7 @@ export default function AddBid(){
 
 
     function getBids() {
-        axios.get("http://localhost:4042/Auction/get/IT21809224")
+        axios.get("http://localhost:4042/Auction/get/user03")
             .then((res) => {
                 setBids(res.data);
 
@@ -41,19 +41,31 @@ export default function AddBid(){
             const cooperateBid = parseInt(displayedBid) + parseInt(bidValue);
 
             const userId = "IT21806872";
+            const itemId = "Item44";
+
 
             const newBid = {
                 userId,
                 bidValue: cooperateBid,
             }
+            const bidHis = {
+                userId,
+                itemId,
+                bidValue
+            }
 
-            axios.put("http://localhost:4042/Auction/update/Item01", newBid).then(() => {
+            axios.put("http://localhost:4042/Auction/update/Item44", newBid).then(() => {
                 alert("Bid added");
                 setBid(""); 
                 setInputError(null); 
             }).catch((err) => {
-                alert(err)
+                console(err)
             });
+            axios.post("http://localhost:4042/BidHistory/add", bidHis).then(()=>{
+                    console.log("Auction History Updated");
+            }).catch((err)=>{
+                    console(err)
+            })
         } else {
             setInputError("Please enter a valid bid value above 100.");
         }

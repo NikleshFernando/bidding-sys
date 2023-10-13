@@ -6,6 +6,7 @@ import {BrowserRouter as Router,Routes,Route} from "react-router-dom" ;
 import AddComment from './components/addComment';
 import AllComments from './components/AllComments';
 import Bootstarp from "bootstrap"
+import AuctionHistory from './components/AuctionHistory';
 import ItemDescription from './components/itemDescription';
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
     <ItemDescription/>
     <AddComment/>
     <AllComments/>
+    <AuctionHistory/>
     </div>
     
   );

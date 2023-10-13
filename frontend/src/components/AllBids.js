@@ -9,7 +9,7 @@ export default function AllBids() {
 
     useEffect(() => {
         function getBids() {
-            axios.get("http://localhost:4042/Auction/get/IT21809224")
+            axios.get("http://localhost:4042/Auction/get/user03")
                 .then((res) => {
                     setBids(res.data);
 
