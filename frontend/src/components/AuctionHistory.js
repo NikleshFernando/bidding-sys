@@ -48,7 +48,7 @@ export default function AuctionHistory(){
             </table>
             </div>
             <div>
-                <button className = "btn btn-primary" onClick = {generatePDF}>PDF</button>
+                <button className = "btn btn-primary" onClick = {generatePDF}>Print</button>
             </div>
         </div>
     )
