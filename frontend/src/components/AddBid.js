@@ -8,10 +8,13 @@ export default function AddBid(){
     const [inputError, setInputError] = useState(null);
     const [value,setValue] = useState("");
 
+    const userID = "user03"
+
+
 
 
     function getBids() {
-        axios.get("http://localhost:4042/Auction/get/user03")
+        axios.get(`http://localhost:4042/Auction/get/${userID}`)
             .then((res) => {
                 setBids(res.data);
 
@@ -54,7 +57,7 @@ export default function AddBid(){
                 bidValue
             }
 
-            axios.put("http://localhost:4042/Auction/update/Item44", newBid).then(() => {
+            axios.put(`http://localhost:4042/Auction/update/${itemId}`, newBid).then(() => {
                 alert("Bid added");
                 setBid(""); 
                 setInputError(null); 
