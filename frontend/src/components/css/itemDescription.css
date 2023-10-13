@@ -1,0 +1,26 @@
+/* ItemDescription.css */
+.description{
+    margin-top: 30px;
+}
+/* Style the overall container */
+.description-container {
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Style the headings (Address, Street, City, Description) */
+.description-heading {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Align the text left for the description details */
+.description-detail {
+    text-align: left;
+}
