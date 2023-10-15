@@ -28,4 +28,19 @@ router.route("/").get((req,res)=>{
         console.log(err)
     })
 })
+router.route("/get/:userId").get(async (req, res) => {
+    const userId = req.params.userId;
+    try {
+        const bid = await AuctionHistory.findOne({ userId: userId });
+        if (bid) {
+            res.status(200).json({ status: "Bid History fetched", bid });
+        } else {
+            res.status(404).json({ status: "Bid not found" });
+        }
+    } catch (err) {
+        console.log(err.message);
+        res.status(500).json({ status: "Error with get user", error: err.message });
+    }
+});
+
 module.exports = router;

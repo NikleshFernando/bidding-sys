@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import './css/addBid.css'
+import { useCookies } from 'react-cookie';
+import './css/addBid.css';
+
 export default function AddBid(){
 
     const [bids, setBids] = useState([]);
@@ -8,10 +10,9 @@ export default function AddBid(){
     const [inputError, setInputError] = useState(null);
     const [value,setValue] = useState("");
 
-    const userID = "user03"
+    const [cookies] = useCookies(['userID']);
 
-
-
+    const userID = cookies.userID;
 
     function getBids() {
         axios.get(`http://localhost:4042/Auction/get/${userID}`)

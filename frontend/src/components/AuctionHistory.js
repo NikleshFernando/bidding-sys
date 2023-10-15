@@ -7,9 +7,11 @@ export default function AuctionHistory(){
 
     const componentPDF = useRef()
 
+    const userID = "IT21806872";
+
     useEffect(()=>{
         function getAuctionHis(){
-        axios.get("http://localhost:4042/BidHistory/").then((res)=>{
+        axios.get(`http://localhost:4042/BidHistory/get/${userID}`).then((res)=>{
             setAuctions(res.data);
             console.log(res.data);
         }).catch((err)=>{
